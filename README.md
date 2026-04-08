@@ -81,12 +81,17 @@ SOLUCIOÓN:  La solución que se planteo es hacer un sistema que permita gestion
 - Figma (diseño UI/UX)
 - Draw.io (diagramas)
 
+
+## BASES DE DATOS ##
 | Tabla | Descripcion |
 |---|---|
 | tipo | tipo del producto que se esta agregando añ historial|
 | PRODUCTO | la cantidad de productos que se hizo en el dia |
 | PRODUCCION | regstra la produccion que se creo en un turno respectivo |
 | TURNO | Registro la produccion dividida por turno |
+
+
+
 
 
  
