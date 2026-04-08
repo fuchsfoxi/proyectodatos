@@ -185,7 +185,9 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 server.port=8080
  
  
+## Diseño UI
 
+[ diseño en figma ](https://www.figma.com/proto/Ueb61u2dTvmrjCBGSZqRPO/PROY_RENZO?node-id=0-1&t=amAXHteqLhkXI0jd-1)
 
 
 
