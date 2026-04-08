@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="renzo.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="superior">
+        <h1>Ingreso de la producción</h1>
+    </header>
+
+    <button class="menu-btn" id="menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>   
+
+    <!-- CONTENIDO -->
+    <main class="inicio-pagina">
+        <div class="cartas-inicio">
+            <a href="produccion/panes.html" class="carta carta-panes">Panes</a>
+            <a href="produccion/pasteles.html" class="carta carta-tortas">Tortas</a>
+            <a href="produccion/bocaditos.html" class="carta carta-bocaditos">Bocaditos</a>
+        </div>
+    </main>
+
+
+    <aside class="ventana-lateral" id="menu">
+        <h2>Menú</h2>
+        <button id="cerrar-menu">X</button>
+
+        <nav>
+            <a href="">Ingreso de produccion</a>
+            <a href="menu/historial.html">Historial</a>
+            <a href="menu/grafico.html">Graficos</a>
+        </nav>
+
+    </aside>
+
+    <!-- SCRIPT -->
+    <script>
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+        const cerrar = document.getElementById("cerrar-menu");
+
+        btn.addEventListener("click", () => {
+            menu.style.display = "block";
+        });
+
+        cerrar.addEventListener("click", () => {
+            menu.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
