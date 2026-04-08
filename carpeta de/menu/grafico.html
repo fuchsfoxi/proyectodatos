@@ -6,7 +6,8 @@
     <title>Gráfico</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../renzo.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../renzo.js"></script>
+
 </head>
 <body>
     <header class="superior-estadistica">
@@ -20,7 +21,8 @@
     <canvas id="grafico"></canvas>
 
     <aside class="ventana-lateral" id="menu">
-        <button id="cerrar-menu">  <!-- ✅ botón cerrar -->
+        <button id="cerrar-menu" id="menu-btn">  
+            <h2>Menu</h2>
             <i class="fa-solid fa-xmark"></i>
         </button>
         <nav>
@@ -42,9 +44,7 @@
         cerrar.addEventListener("click", () => {
             menu.style.display = "none";
         });
-    </script>
 
-    <script>
         const datos = JSON.parse(localStorage.getItem("panes")) || [];
         const conteo = {};
 
@@ -57,13 +57,15 @@
         });
 
         if (Object.keys(conteo).length === 0) {
-            document.body.innerHTML += "<p>No hay datos para mostrar</p>";
+            const mensaje = document.createElement("p");
+            mensaje.textContent = "No hay datos para mostrar";
+            document.body.appendChild(mensaje);
         }
 
         const ctx = document.getElementById("grafico");
         new Chart(ctx, {
             type: 'bar',
-                data: {
+            data: {
                 labels: Object.keys(conteo),
                 datasets: [{
                     label: 'Producción de panes',
