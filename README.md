@@ -93,10 +93,96 @@ SOLUCIOÓN:  La solución que se planteo es hacer un sistema que permita gestion
 ## Diagrama Entidad Relacion (DER)
 ![image alt](https://github.com/fuchsfoxi/proyectodatos/blob/258ddd765cf4ef7e6d57c1e368c8210241ef00a2/Diagrama%20sin%20t%C3%ADtulo.drawio.png)
 
+## Cardinalidanes 
+TIPO - PRODUCTO 
+Un tipo  puede tener muchos productos 
+PRODUCTO - PRODUCCION 
+Un producto puede estar en muchas producciones
+PRODUCCION - TURNO 
+Muchas produccion pueden tener un turno 
+
+| Entidad A | Relacion | Entidad B | Cardinalidad |
+| Tipo | Tiene | Producto | 1:N |
+| Producto |  Tiene |Producción | 1:N |
+|Producción | Tiene | Turno | N:1 |
+
+## Base de Datos 
+El sistema cuenta con 4 tablas 
+create database renzo;
+
+use renzo;
+
+create table tipo (
+id_tipo int primary key auto_increment,
+tipo varchar (50)
+ );
+
+create table producto(
+id_producto int primary key auto_increment,
+nombre varchar (50),
+precio decimal(10,2),
+id_tipo int,
+foreign key (id_tipo) references tipo(id_tipo)
+);
+
+create table produccion(
+id_produccion int primary key auto_increment,
+cantidad int,
+fecha timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+id_producto int,
+id_turno int,
+foreign key (id_producto) references producto(id_producto),
+foreign key( id_turno) references turno(id_turno)
+);
+
+create table turno (
+id_turno int primary key auto_increment,
+turno varchar (50),
+hora_fin_pan time
+);
+
+## Correr el Proyecto con:
 
 
+## Como correr el proyecto
+ 
+### Requisitos previos
+- Tener instalado IntelliJ IDEA
+- Tener instalado XAMPP (para MySQL)
+- Tener instalado MySQL Workbench
+- Tener instalado JDK 21 o superior
+ 
+### Backend
+1. Abrir la carpeta `backend/` en IntelliJ IDEA
+2. Configurar `application.properties` con los datos de MySQL
+3. Iniciar XAMPP y activar MySQL
+4. Ejecutar `GotagotaApplication.java`
+5. El backend corre en: `http://localhost:8080`
+ 
+### Frontend
+1. Abrir la carpeta `frontend/` en VsCode
+2. Abrir `index.html` con Live Server
+3. El frontend se comunica con el backend via fetch()
+ 
+> El frontend y el backend corren por separado.
+> El backend debe estar iniciado antes de abrir el frontend.
+ 
+### Configuracion de base de datos
+```
+spring.application.name=gotagota
+# CONEXION A MYSQL
+spring.datasource.url=jdbc:mysql://localhost:3306/gota_a_gota
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
+#JPA / HIBERNATE
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 
+# Puerto del servidor
+server.port=8080
  
  
 
