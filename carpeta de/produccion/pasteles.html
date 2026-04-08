@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="../renzo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="../renzo.js"></script>
-
 </head>
 <body>
-    <header class="superior-tortas">  
+    <header class="superior-tortas">
         <h1>Tortas</h1>
     </header>
 
@@ -25,55 +24,39 @@
 
     <main class="contenido-tortas">
         <form class="formulario-tortas">
-    <div class="columna-izquierda">
-        <select id="input-tipo">
-            <option value="">TIPO DE TORTA</option>
-            <option>Torta de chocolate grande</option>
-            <option>Torta de chocolate pequeña</option>
-            <option>Torta vainilla grande</option>
-            <option>Torta de vainilla pequeña</option>
-            <option>Tres leches pequeño</option>
-            <option>Tres leches grande</option>
-        </select>
-    </div>
+            <div class="columna-izquierda">
+                <select id="input-tipo">
+                    <option value="">TIPO DE TORTA</option>
+                    <option>Torta de chocolate grande</option>
+                    <option>Torta de chocolate pequeña</option>
+                    <option>Torta vainilla grande</option>
+                    <option>Torta de vainilla pequeña</option>
+                    <option>Tres leches pequeño</option>
+                    <option>Tres leches grande</option>
+                </select>
+            </div>
 
-    <div class="columna-derecha">
-        <input type="number" id="input-latas" placeholder="CANTIDAD DE LATA" min="0">
-    </div>
+            <div class="columna-derecha">
+                <input type="number" id="input-latas" placeholder="CANTIDAD DE LATA" min="0">
+            </div>
 
-    <button type="button" id="btn-guardar">Guardar</button>
-</form>
+            <button type="button" id="btn-guardar">Guardar</button>
+        </form>
 
         <div class="lista-cartas" id="lista-cartas"></div>
-
-            <aside class="ventana-lateral" id="menu">
-                <button id="cerrar-menu">X</button>
-
-                <nav>
-                    <a href="../renzo.html">Inicio</a>
-                    <a href="../menu/historial.html">Historial</a>
-                    <a href="../menu/grafico.html">Graficos</a>
-                    
-                    <H2> otros </H2>
-                    <a href="panes.html">Panes</a>
-                    <a href="bocaditos.html">Bocaditos</a>
-                </nav>
     </main>
 
-        <script>
-        const btn = document.getElementById("menu-btn");
-        const menu = document.getElementById("menu");
-        const cerrar = document.getElementById("cerrar-menu");
-
-        btn.addEventListener("click", () => {
-            menu.style.display = "block";
-        });
-
-        cerrar.addEventListener("click", () => {
-            menu.style.display = "none";
-        });
-    </script>
+    <aside class="ventana-lateral" id="menu">
+        <button id="cerrar-menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav>
+            <a href="../renzo.html">Inicio</a>
+            <a href="../menu/historial.html">Historial</a>
+            <a href="../menu/grafico.html">Graficos</a>
+            <a href="panes.html">Panes</a>
+            <a href="bocaditos.html">Bocaditos</a>
+        </nav>
+    </aside>
 </body>
 </html>
-
-
