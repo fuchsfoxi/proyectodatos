@@ -90,6 +90,9 @@ SOLUCIOÓN:  La solución que se planteo es hacer un sistema que permita gestion
 | PRODUCCION | regstra la produccion que se creo en un turno respectivo |
 | TURNO | Registro la produccion dividida por turno |
 
+## Diagrama Entidad Relacion (DER)
+![image alt](https://github.com/fuchsfoxi/proyectodatos/blob/258ddd765cf4ef7e6d57c1e368c8210241ef00a2/Diagrama%20sin%20t%C3%ADtulo.drawio.png)
+
 
 
 
