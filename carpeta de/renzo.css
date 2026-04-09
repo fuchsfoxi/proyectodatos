@@ -119,6 +119,8 @@ body {
     padding: 15px;
     border: 1px solid var(--border-color);
 }
+
+
 .ventana-lateral {
     position: fixed;
     top: 0;
@@ -426,4 +428,11 @@ body {
     .formulario-bocaditos input {
         width: 100%;
     }
+}
+
+.frontal-graficos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
 }
