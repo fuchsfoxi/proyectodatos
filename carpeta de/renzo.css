@@ -320,10 +320,19 @@ body {
     background-image: url('img/historial.png');
 }
 
+    .formulario-historial {
+        display: flex;
+        flex-direction: wrap;
+        gap: 15px;
+        padding: 20px;
+        margin: 20px auto;
+        width: 400px;
+        align-items: center;
+        justify-content: center;
+    }
 .contenido-historial {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     flex: 1;
 }
 
