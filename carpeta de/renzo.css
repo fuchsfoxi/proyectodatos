@@ -302,3 +302,53 @@ body {
     margin: 0 auto;      
     width: 150px;      
 }
+
+.superior-historial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color);
+    height: 218px;    
+    width: 100%;
+    border: 2px solid var(--border-color);
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    background-image: url('img/historial.png');
+}
+
+.contenido-historial {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.contenido-historial select,
+.contenido-historial input {
+    padding: 12px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    background-color: #d9d9d9;
+    align-items: center;
+    width: 150px;  
+    font-size: 16px;
+    margin: center;
+}
+
+.btn-buscar {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--text-carta-color);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;    
+    margin: 0 auto;      
+    width: 150px;      
+}
