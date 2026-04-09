@@ -6,7 +6,6 @@
     <title>Gráfico</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../renzo.css">
-    <script src="/carpeta de/renzo.js"></script>
 </head>
 <body>
     <header class="superior-estadistica">
@@ -20,9 +19,8 @@
     <canvas id="grafico"></canvas>
 
     <aside class="ventana-lateral" id="menu">
-        
+        <h2>Menu</h2>
         <button id="cerrar-menu">
-            <h2>Menu</h2>
             <i class="fa-solid fa-xmark"></i>
         </button>
         <nav>
@@ -31,48 +29,7 @@
             <a href="grafico.html">Gráficos</a>
         </nav>
     </aside>
-
-    <script>
-        const btn = document.getElementById("menu-btn");
-        const menu = document.getElementById("menu");
-        const cerrar = document.getElementById("cerrar-menu");
-
-        btn.addEventListener("click", () => {
-            menu.style.display = "block";
-        });
-
-        cerrar.addEventListener("click", () => {
-            menu.style.display = "none";
-        });
-
-        const datos = JSON.parse(localStorage.getItem("panes")) || [];
-        const conteo = {};
-
-        datos.forEach(dato => {
-            const tipo = dato.tipo;
-            const cantidad = parseInt(dato.cantidad) || 0;
-            if (tipo) {
-                conteo[tipo] = (conteo[tipo] || 0) + cantidad;
-            }
-        });
-
-        if (Object.keys(conteo).length === 0) {
-            const mensaje = document.createElement("p");
-            mensaje.textContent = "No hay datos para mostrar";
-            document.body.appendChild(mensaje);
-        }
-
-        const ctx = document.getElementById("grafico");
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(conteo),
-                datasets: [{
-                    label: 'Producción de panes',
-                    data: Object.values(conteo)
-                }]
-            }
-        });
-    </script>
+    <script src="/carpeta de/renzo.js"></script>
+    <script src="/carpeta de/menu/grafico.js"></script>
 </body>
 </html>
