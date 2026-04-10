@@ -328,7 +328,6 @@ body {
     width: 150px;      
 }
 
-<<<<<<< HEAD
 .superior-historial {
     display: flex;
     justify-content: center;
@@ -438,14 +437,7 @@ body {
     gap: 30px;
     padding: 20px;
 }
-=======
 
 .cartas-inicio :hover{
     transform: scale(1.05)
 }
-
-@media (max-width: 1280px) { 
-
-
- }
->>>>>>> cbd05d23944cdec28ac7ba74fdc1c310384b3cdf
