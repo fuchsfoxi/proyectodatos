@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panes</title>
+    <link rel="stylesheet" href="../renzo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header class="superior-panes">
+        <h1>Panes</h1>
+    </header>
+    <div class="btn-general">
+        <a href="../renzo.html" class="btn-volver">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <button class="menu-btn" id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+    
+    
+    
+    <main class="contenido-panes">
+    <form class="formulario-panes">
+    <div class="columna-izquierda">
+        <select id="input-tipo">
+            <option value="">TIPO DE PAN</option>
+            <option>Pan francés</option>
+            <option>Pan integral</option>
+            <option>Pan de molde</option>
+            <option>Pan dulce</option>
+        </select>
+        <select id="input-turno">
+            <option value="">TURNO</option>
+            <option>Mañana</option>
+            <option>Noche</option>
+        </select>
+    </div>
+
+    <div class="columna-derecha">
+        <input type="number" id="input-cantidad" placeholder="CANTIDAD DE PAN" min="0">
+        <input type="number" id="input-latas" placeholder="CAN_LATAS" min="0">
+    </div>
+
+        <button type="button" id="btn-guardar">Guardar</button>
+    </form>
+
+
+        <div class="lista-cartas" id="lista-cartas"></div>
+    </main>
+
+    <aside class="ventana-lateral" id="menu">
+        <button id="cerrar-menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav>
+            <a href="../renzo.html">Inicio</a>
+            <a href="../menu/historial.html">Historial</a>
+            <a href="../menu/grafico.html">Gráficos</a>
+            <a href="bocaditos.html">Bocaditos</a>
+            <a href="pasteles.html">Tortas</a>
+        </nav>
+    </aside>
+
+    <script>
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+        const cerrar = document.getElementById("cerrar-menu");
+
+        btn.addEventListener("click", () => {
+            menu.style.display = "block";
+        });
+
+        cerrar.addEventListener("click", () => {
+            menu.style.display = "none";
+        });
+    </script>
+</body>
+</html>
+

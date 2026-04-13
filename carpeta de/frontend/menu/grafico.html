@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../renzo.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="superior-estadistica">
+        <h1>Gráfico de producción</h1>
+    </header>
+
+    <button class="menu-btn" id="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <canvas id="grafico"></canvas>
+
+    <aside class="ventana-lateral" id="menu">
+        <button id="cerrar-menu">  <!-- ✅ botón cerrar -->
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav>
+            <a href="../renzo.html">Inicio</a>
+            <a href="historial.html">Historial</a>
+            <a href="grafico.html">Gráficos</a>
+        </nav>
+    </aside>
+
+    <script>
+        const btn = document.getElementById("menu-btn");
+        const menu = document.getElementById("menu");
+        const cerrar = document.getElementById("cerrar-menu");
+
+        btn.addEventListener("click", () => {
+            menu.style.display = "block";
+        });
+
+        cerrar.addEventListener("click", () => {
+            menu.style.display = "none";
+        });
+    </script>
+
+    <script>
+        const datos = JSON.parse(localStorage.getItem("panes")) || [];
+        const conteo = {};
+
+        datos.forEach(dato => {
+            const tipo = dato.tipo;
+            const cantidad = parseInt(dato.cantidad) || 0;
+            if (tipo) {
+                conteo[tipo] = (conteo[tipo] || 0) + cantidad;
+            }
+        });
+
+        if (Object.keys(conteo).length === 0) {
+            document.body.innerHTML += "<p>No hay datos para mostrar</p>";
+        }
+
+        const ctx = document.getElementById("grafico");
+        new Chart(ctx, {
+            type: 'bar',
+                data: {
+                labels: Object.keys(conteo),
+                datasets: [{
+                    label: 'Producción de panes',
+                    data: Object.values(conteo)
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
