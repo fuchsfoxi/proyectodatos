@@ -302,4 +302,544 @@ body {
     width: 150px;      
 }
 
+/* ============================================
+
+  RESPONSIVE — Agregar al final de style.css
+
+  ============================================ */
+
+
+
+/* ---- TABLET GRANDE (max 1024px) ---- */
+
+@media (max-width: 1024px) {
+
+ :root {
+
+  --sidebar-w: 200px;
+
+ }
+
+
+
+ .stats-row {
+
+  grid-template-columns: repeat(3, 1fr);
+
+ }
+
+
+
+ .cocina-cols {
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+
+ }
+
+
+
+ .menu-list {
+
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+ }
+
+
+
+ .asist-grid {
+
+  grid-template-columns: 260px 1fr;
+
+ }
+
+}
+
+
+
+/* ---- TABLET (max 900px) ---- */
+
+@media (max-width: 900px) {
+
+ :root {
+
+  --sidebar-w: 200px;
+
+ }
+
+
+
+ .cocina-cols {
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+ }
+
+
+
+ .stats-row {
+
+  grid-template-columns: 1fr 1fr;
+
+ }
+
+
+
+ .asist-grid {
+
+  grid-template-columns: 1fr;
+
+ }
+
+
+
+ .welcome-header {
+
+  padding: 20px;
+
+ }
+
+
+
+ .menu-list {
+
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+ }
+
+
+
+ .section {
+
+  padding: 22px 20px;
+
+ }
+
+}
+
+
+
+/* ---- TABLET PEQUEÑA / MÓVIL GRANDE (max 768px) ---- */
+
+@media (max-width: 768px) {
+
+
+
+ /* Mostrar topbar y ocultar sidebar por defecto */
+
+ .topbar {
+
+  display: flex;
+
+ }
+
+
+
+ .sidebar {
+
+  transform: translateX(-100%);
+
+  width: 240px;
+
+  z-index: 500;
+
+ }
+
+
+
+ .sidebar.open {
+
+  transform: translateX(0);
+
+  box-shadow: 4px 0 24px rgba(0, 0, 0, .25);
+
+ }
+
+
+
+ .main-area {
+
+  margin-left: 0;
+
+  padding-top: var(--topbar-h);
+
+ }
+
+
+
+ /* Login: ocultar lado izquierdo */
+
+ .login-left {
+
+  display: none;
+
+ }
+
+
+
+ .login-right {
+
+  flex: 1;
+
+ }
+
+
+
+ /* Stats en una sola columna */
+
+ .stats-row {
+
+  grid-template-columns: 1fr;
+
+ }
+
+
+
+ /* Cocina en una columna */
+
+ .cocina-cols {
+
+  grid-template-columns: 1fr;
+
+ }
+
+
+
+ /* Sections con menos padding */
+
+ .section {
+
+  padding: 16px 14px;
+
+ }
+
+
+
+ /* Ocultar imagen del welcome */
+
+ .welcome-img {
+
+  display: none;
+
+ }
+
+
+
+ .welcome-header {
+
+  padding: 18px;
+
+ }
+
+
+
+ .welcome-sub {
+
+  font-size: 16px;
+
+ }
+
+
+
+ /* Menú en dos columnas */
+
+ .menu-list {
+
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+  gap: 12px;
+
+ }
+
+
+
+ /* Asistencia en columna */
+
+ .asist-grid {
+
+  grid-template-columns: 1fr;
+
+ }
+
+
+
+ .clock-display {
+
+  font-size: 36px;
+
+ }
+
+
+
+ /* Pedidos: botones debajo */
+
+ .pedido-card {
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+ }
+
+
+
+ .pedido-actions {
+
+  width: 100%;
+
+  justify-content: flex-start;
+
+ }
+
+
+
+ /* Tabla con scroll horizontal */
+
+ .table-wrap,
+
+ .card {
+
+  overflow-x: auto;
+
+ }
+
+
+
+ table {
+
+  min-width: 480px;
+
+ }
+
+
+
+ /* Breadcrumb más compacto */
+
+ .breadcrumb {
+
+  padding: 12px 14px;
+
+  font-size: 12px;
+
+ }
+
+
+
+ /* Modal full width en móvil */
+
+ .modal {
+
+  max-width: 100%;
+
+  margin: 0 10px;
+
+ }
+
+}
+
+
+
+/* ---- MÓVIL PEQUEÑO (max 480px) ---- */
+
+@media (max-width: 480px) {
+
+
+
+ .clock-display {
+
+  font-size: 28px;
+
+  letter-spacing: 2px;
+
+ }
+
+
+
+ .stat-num {
+
+  font-size: 22px;
+
+ }
+
+
+
+ .stat-label {
+
+  font-size: 10px;
+
+ }
+
+
+
+ .stat-card {
+
+  padding: 14px;
+
+  gap: 12px;
+
+ }
+
+
+
+ .stat-icon {
+
+  width: 38px;
+
+  height: 38px;
+
+  font-size: 15px;
+
+ }
+
+
+
+ .menu-list {
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+ }
+
+
+
+ .menu-item {
+
+  padding: 14px;
+
+ }
+
+
+
+ .menu-nombre {
+
+  font-size: 13px;
+
+ }
+
+
+
+ .menu-precio {
+
+  font-size: 17px;
+
+ }
+
+
+
+ .section-header {
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+ }
+
+
+
+ .btn-primary {
+
+  width: 100%;
+
+  justify-content: center;
+
+ }
+
+
+
+ .welcome-header {
+
+  padding: 14px;
+
+  border-radius: 8px;
+
+ }
+
+
+
+ .welcome-sub {
+
+  font-size: 14px;
+
+ }
+
+
+
+ .modal-body {
+
+  padding: 16px;
+
+ }
+
+
+
+ .modal-footer {
+
+  padding: 12px 16px;
+
+ }
+
+
+
+ .login-box {
+
+  padding: 0 8px;
+
+ }
+
+
+
+ .topbar {
+
+  padding: 0 14px;
+
+ }
+
+}
+
+
+
+/* ---- MÓVIL MUY PEQUEÑO (max 360px) ---- */
+
+@media (max-width: 360px) {
+
+
+
+ .menu-list {
+
+  grid-template-columns: 1fr;
+
+ }
+
+
+
+ .stats-row {
+
+  gap: 10px;
+
+ }
+
+
+
+ .clock-display {
+
+  font-size: 24px;
+
+ }
+
+
+
+ .sidebar-logo span {
+
+  font-size: 15px;
+
+ }
+
+}
+
 
