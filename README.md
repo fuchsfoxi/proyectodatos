@@ -109,9 +109,11 @@ Muchas produccion pueden tener un turno
 
 ## Base de Datos 
 El sistema cuenta con 4 tablas 
-create database renzo;
+
 ```MySQL
-use renzo;
+CREATE DATABASE IF NOT EXISTS renzo;
+USE renzo;
+
 create table tipo (
 id_tipo int primary key auto_increment,
 tipo varchar (50)
