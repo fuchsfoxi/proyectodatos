@@ -102,7 +102,7 @@ PRODUCCION - TURNO
 Muchas produccion pueden tener un turno 
 
 | Entidad A | Relacion | Entidad B | Cardinalidad |
-| ------ | ------ | ------ | ------ | ------ |
+| --------- | -------- | --------- | ------------ |
 | Tipo | Tiene | Producto | 1:N |
 | Producto |  Tiene |Producción | 1:N |
 |Producción | Tiene | Turno | N:1 |
@@ -110,9 +110,8 @@ Muchas produccion pueden tener un turno
 ## Base de Datos 
 El sistema cuenta con 4 tablas 
 create database renzo;
-
+```MySQL
 use renzo;
-
 create table tipo (
 id_tipo int primary key auto_increment,
 tipo varchar (50)
@@ -141,7 +140,7 @@ id_turno int primary key auto_increment,
 turno varchar (50),
 hora_fin_pan time
 );
-
+```
 ## Correr el Proyecto con:
 
 
