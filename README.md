@@ -102,6 +102,7 @@ PRODUCCION - TURNO
 Muchas produccion pueden tener un turno 
 
 | Entidad A | Relacion | Entidad B | Cardinalidad |
+| ------------- | ------------- | ------------- | ------------- |
 | Tipo | Tiene | Producto | 1:N |
 | Producto |  Tiene |Producción | 1:N |
 |Producción | Tiene | Turno | N:1 |
