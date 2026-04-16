@@ -15,9 +15,6 @@
         <a href="../renzo.html" class="btn-volver">
             <i class="fa-solid fa-arrow-left"></i>
         </a>
-        <button class="menu-btn" id="menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
     </div>
     
     
@@ -52,31 +49,7 @@
     </main>
 
     <aside class="ventana-lateral" id="menu">
-        <button id="cerrar-menu">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <nav>
-            <a href="../renzo.html">Inicio</a>
-            <a href="../menu/historial.html">Historial</a>
-            <a href="../menu/grafico.html">Gráficos</a>
-            <a href="bocaditos.html">Bocaditos</a>
-            <a href="pasteles.html">Tortas</a>
-        </nav>
     </aside>
-
-    <script>
-        const btn = document.getElementById("menu-btn");
-        const menu = document.getElementById("menu");
-        const cerrar = document.getElementById("cerrar-menu");
-
-        btn.addEventListener("click", () => {
-            menu.style.display = "block";
-        });
-
-        cerrar.addEventListener("click", () => {
-            menu.style.display = "none";
-        });
-    </script>
 </body>
 </html>
 

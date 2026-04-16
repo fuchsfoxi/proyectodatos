@@ -9,51 +9,45 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="superior">
-        <h1>Ingreso de la producción</h1>
-    </header>
 
-    <button class="menu-btn" id="menu-btn">
-    <i class="fa-solid fa-bars"></i>
-</button>   
+    <!-- VENTANA LATERAL (solo visible para celular) -->
+    <div class="topbar">
+        <span class="topbar-logo">RENZO</span>
+        <button class="btn-hamburguesa" id="btn-abrir">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
 
-    <!-- CONTENIDO -->
+
+<!--Superpuesto (OVERLAY)            -->
+
+<div class="overlay"></div>
+
+
+<!--menu lateral (SIDEBAR)            -->
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">RENZO</div>
+            <nav>
+            <a href="">Inicio</a>
+            <a href="/proyectodatos-main/carpeta de/frontend/menu/historial.html">Historial</a>
+            <a href="/proyectodatos-main/carpeta de/frontend/menu/grafico.html">Graficos</a>
+        </nav>
+</aside>
+
+
+
+    <!-- CONTENIDO PRINCIPAL                    -->
     <main class="inicio-pagina">
         <div class="cartas-inicio">
-            <a href="produccion/panes.html" class="carta carta-panes">Panes</a>
-            <a href="produccion/pasteles.html" class="carta carta-tortas">Tortas</a>
-            <a href="produccion/bocaditos.html" class="carta carta-bocaditos">Bocaditos</a>
+            <a href="/proyectodatos-main/carpeta de/frontend/produccion/panes.html" class="carta carta-panes">Panes</a>
+            <a href="/proyectodatos-main/carpeta de/frontend/produccion/pasteles.html" class="carta carta-tortas">Tortas</a>
+            <a href="/proyectodatos-main/carpeta de/frontend/produccion/bocaditos.html" class="carta carta-bocaditos">Bocaditos</a>
         </div>
     </main>
 
 
-    <aside class="ventana-lateral" id="menu">
-        <h2>Menú</h2>
-        <button id="cerrar-menu">X</button>
-
-        <nav>
-            <a href="">Ingreso de produccion</a>
-            <a href="menu/historial.html">Historial</a>
-            <a href="menu/grafico.html">Graficos</a>
-        </nav>
-
-    </aside>
-
     <!-- SCRIPT -->
-    <script>
-        const btn = document.getElementById("menu-btn");
-        const menu = document.getElementById("menu");
-        const cerrar = document.getElementById("cerrar-menu");
-
-        btn.addEventListener("click", () => {
-            menu.style.display = "block";
-        });
-
-        cerrar.addEventListener("click", () => {
-            menu.style.display = "none";
-        });
-    </script>
-
+     <script src="/proyectodatos-main/carpeta de/frontend/sidebar.js"></script>
 </body>
 </html>
