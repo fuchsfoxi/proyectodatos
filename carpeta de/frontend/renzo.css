@@ -131,15 +131,15 @@ main {
 }
 
 .superior-panes {
-    background-image: url('/proyectodatos-main/carpeta de/frontend/img/Captura de pantalla 2026-04-05 174621.png');
+    background-image: url('/carpeta de/frontend/img/Captura de pantalla 2026-04-05 174621.png');
 }
 
 .superior-bocaditos {
-    background-image: url('/proyectodatos-main/carpeta de/frontend/img/bocadaditos.png');
+    background-image: url('/carpeta de/frontend/img/bocadaditos.png');
 }
 
 .superior-tortas {
-    background-image: url('/proyectodatos-main/carpeta de/frontend/img/tortas.png');
+    background-image: url('/carpeta de/frontend/img/tortas.png');
 }
 
 .superior-historial {
@@ -191,15 +191,15 @@ main {
 }
 
 .carta-panes {
-    background-image: url('/proyectodatos-main/carpeta de/frontend/img/Captura de pantalla 2026-04-05 174621.png');
+    background-image: url('/carpeta de/frontend/img/Captura de pantalla 2026-04-05 174621.png');
 }
 
 .carta-tortas {
-    background-image: url('/proyectodatos-main/carpeta de/frontend/img/tortas.png');
+    background-image: url('/carpeta de/frontend/img/tortas.png');
 }
 
 .carta-bocaditos {
-    background-image: url('/proyectodatos-main/carpeta de/frontend/img/bocadaditos.png');
+    background-image: url('/carpeta de/frontend/img/bocadaditos.png');
 }
 
 /* ═══════════════════════════════════════════════════
@@ -259,6 +259,17 @@ main {
     background-color: #d9d9d9;
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
+    width: 100%;
+    
+}
+
+.columna-izquierda,
+.columna-derecha {
+    flex: 1;
+}
+
+.formulario-panes select,
+.formulario-panes input {
     width: 100%;
 }
 
