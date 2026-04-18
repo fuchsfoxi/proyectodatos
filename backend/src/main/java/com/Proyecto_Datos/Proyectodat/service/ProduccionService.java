@@ -20,7 +20,7 @@ public class ProduccionService {
         return produccionRepository.save(produccion);
     }
 
-    public void eliminar(Long id) {
+    public void eliminar(Integer id) {
         produccionRepository.deleteById(id);
     }
 }

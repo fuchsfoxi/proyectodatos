@@ -25,7 +25,7 @@ public class TipoController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id) {
+    public void eliminar(@PathVariable Integer id) {
         tipoService.eliminar(id);
     }
 }

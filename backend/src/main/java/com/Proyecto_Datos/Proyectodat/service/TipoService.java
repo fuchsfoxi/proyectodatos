@@ -20,7 +20,7 @@ public class TipoService {
         return tipoRepository.save(tipo);
     }
 
-    public void eliminar(Long id) {
+    public void eliminar(Integer id) {
         tipoRepository.deleteById(id);
     }
 }

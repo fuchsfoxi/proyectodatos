@@ -1,36 +1,21 @@
 package com.Proyecto_Datos.Proyectodat.entity;
 
 import jakarta.persistence.*;
-//@Entity le dice a hibernate que esta clase  representa una tabla en la BD
+
 @Entity
-//@Table indica el nombre exacto de la  tabla en mysql  o mariadb
-@Table(name ="tipo")
+@Table(name = "tipo")
 public class Tipo {
-    // @Id marca este campo como clave primaria de la tabla
-    // @generatevalue hace que el id se genere automaticamente (autoincrement)
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tipo")
+    private int id_tipo;
 
-    //nullanble = false significa que este campo no puede estar vasio en la db
     @Column(nullable = false)
     private String tipo;
 
-    // GETTER  O SETTER
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+    public int getId_tipo() { return id_tipo; }
+    public void setId_tipo(int id_tipo) { this.id_tipo = id_tipo; }
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
 }

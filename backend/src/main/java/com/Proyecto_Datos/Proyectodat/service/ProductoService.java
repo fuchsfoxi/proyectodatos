@@ -20,7 +20,7 @@ public class ProductoService {
         return productoRepository.save(producto);
     }
 
-    public void eliminar(Long id) {
+    public void eliminar(Integer id) {
         productoRepository.deleteById(id);
     }
 }
