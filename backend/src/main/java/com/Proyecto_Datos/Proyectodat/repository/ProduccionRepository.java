@@ -1,0 +1,8 @@
+package com.Proyecto_Datos.Proyectodat.repository;
+
+import com.Proyecto_Datos.Proyectodat.entity.Produccion;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+@Repository
+public interface ProduccionRepository extends JpaRepository<Produccion, Long> {
+}
