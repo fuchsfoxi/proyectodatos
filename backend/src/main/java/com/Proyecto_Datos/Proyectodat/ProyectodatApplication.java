@@ -1,15 +1,13 @@
-package com.proyecto_datos.proyecto_datos;
+package com.Proyecto_Datos.Proyectodat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProyectoDatosApplication {
+public class ProyectodatApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProyectoDatosApplication.class, args);
+		SpringApplication.run(ProyectodatApplication.class, args);
 	}
 
 }
-
-//dkdmdadañdmañdmañdmadñ
