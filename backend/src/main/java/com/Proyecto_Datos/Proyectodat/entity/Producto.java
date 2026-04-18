@@ -8,7 +8,7 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "producto")
+    @Column(name = "id_producto")
     private int id_producto;
 
     @Column(nullable = false)
