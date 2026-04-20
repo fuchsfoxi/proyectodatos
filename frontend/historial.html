@@ -1,26 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Historial</title>
-    <rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="/frontend/css/diseño.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-        <!-- Topbar (solo visible en móvil)  -->
+
+    <!-- Topbar -->
     <div class="topbar">
       <div class="title-business">
-        <span>PANDAERIA Y PASTELERIA RENZO</span>
+        <span>PANADERÍA Y PASTELERÍA RENZO</span>
       </div>
       <div class="btn-menu">
         <button class="hamburger" aria-label="abrir_menú">
@@ -32,25 +24,30 @@
     <!-- OVERLAY -->
     <div class="overlay"></div>
 
-    <!-- SIDEBAR   -->
-
+    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="sidebar-logo">dashboard</div>
       <ul>
         <li>
-          <a href="/frontend/index.html" class="activo" data-page="home">
+          <a href="/frontend/index.html">
             <i class="fa-solid fa-house"></i>
             <span>Inicio</span>
           </a>
         </li>
         <li class="nav-item-dropdown">
-          <a href="/frontend/stock.html" data-page="home">
+          <a href="/frontend/stock.html" class="nav-link-dropdown">
             <i class="fa-solid fa-boxes-packing"></i>
             <span>Stock</span>
+            <i class="fa-solid fa-chevron-down flecha"></i>
           </a>
+          <ul class="submenu">
+            <li><a href="/frontend/stock/panes.html">Panes</a></li>
+            <li><a href="/frontend/stock/bocaditos.html">Bocaditos</a></li>
+            <li><a href="/frontend/stock/tortas.html">Tortas</a></li>
+          </ul>
         </li>
         <li>
-          <a href="/frontend/historial" data-page="home">
+          <a href="/frontend/historial.html" class="activo">
             <i class="fas fa-clock-rotate-left"></i>
             <span>Historial</span>
           </a>
@@ -58,7 +55,51 @@
       </ul>
     </aside>
 
-    <!-- CONTENIDO PRINCIPAL                                  -->
-     
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- Filtros -->
+      <div class="ingreso-produccion">
+        <input type="date" id="filtro-fecha" />
+
+        <select id="filtro-turno">
+          <option value="">Todos los turnos</option>
+          <option value="manana">Mañana</option>
+          <option value="tarde">Tarde</option>
+          <option value="noche">Noche</option>
+        </select>
+
+        <select id="filtro-tipo">
+          <option value="">Todos</option>
+          <option value="panes">Panes</option>
+          <option value="bocaditos">Bocaditos</option>
+          <option value="tortas">Tortas</option>
+        </select>
+
+        <button id="btn-filtrar">Filtrar</button>
+      </div>
+
+      <!-- Tabla -->
+      <div class="table-responsive mx-3">
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Nombre</th>
+              <th>Turno</th>
+              <th>Cantidad</th>
+              <th>Latas</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-historial"></tbody>
+        </table>
+      </div>
+
+    </main>
+
+    <script src="/frontend/js/sidebar.js"></script>
+    <script src="/frontend/js/historial.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
