@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Panes</title>
     <link rel="stylesheet" href="/frontend/css/diseño.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">    
   </head>
   <body>
     <!-- Topbar (solo visible en móvil) -->
@@ -50,6 +51,7 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main class="main-content">
       <!-- Formulario de ingreso -->
+
       <div class="ingreso-produccion">
         <select id="tipo-pan">
           <option value="">Tipo de pan</option>
@@ -83,24 +85,27 @@
 
         <button id="btn-registrar">Registrar</button>
       </div>
-
+    
+    
+      <table class="table table-striped table-hover">
       <!-- Tabla de resultados -->
-      <!-- Tabla de resultados -->
-      <div class="table-responsive">
+      <div class="table-responsive mb-3">
         <table class="table table-striped table-bordered table-hover">
           <thead class="table-dark">
+            <div class="mx-3">
             <tr>
               <th>Tipo de pan</th>
               <th>Turno</th>
               <th>Cantidad de pan</th>
               <th>Cantidad de latas</th>
             </tr>
+            </div>
           </thead>
           <tbody id="tabla-body"></tbody>
         </table>
       </div>
     </main>
-
+</table>
     <script src="/frontend/js/sidebar.js"></script>
     <script src="/frontend/js/panes.js"></script>
   </body>
