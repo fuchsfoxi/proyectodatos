@@ -62,20 +62,20 @@ body {
     background-color: var(--bg);
 }
 
-/* quita el :hover y usa esto */
 .nav-item-dropdown .submenu {
     display: none;
     flex-direction: column;
     padding-left: 36px;
 }
 
-.submenu.abierto {
+.nav-item-dropdown:hover .submenu {
     display: flex;
 }
 
-.flecha.rotado {
+.nav-item-dropdown:hover .flecha {
     transform: rotate(180deg);
 }
+
 /* ─── OVERLAY ────────────────────────────────────── */
 .overlay {
     display: none;
