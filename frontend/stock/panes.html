@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>stock panes</title>
-</head>
-<body>
-    <!doctype html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>stock</title>
+    <title>Stock Panes</title>
     <link rel="stylesheet" href="/frontend/css/diseño.css" />
   </head>
   <body>
-    <!-- Topbar (solo visible en móvil)  -->
+
+    <!-- Topbar (solo visible en móvil) -->
     <div class="topbar">
       <div class="title-business">
-        <span>PANDAERIA Y PASTELERIA RENZO</span>
+        <span>PANADERÍA Y PASTELERÍA RENZO</span>
       </div>
       <div class="btn-menu">
         <button class="hamburguer" aria-label="abrir_menú">
@@ -30,28 +23,78 @@
     <!-- OVERLAY -->
     <div class="overlay"></div>
 
-    <!-- SIDEBAR   -->
-
+    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="sidebar-logo">dashboard</div>
       <ul>
         <li>
-          <a href="/frontend/index.html" class="activo" data-page="home">
+          <a href="/frontend/index.html" data-page="home">
             <i class="fa-solid fa-house"></i>
             <span>Inicio</span>
           </a>
         </li>
         <li>
-          <i class="fa-solid fa-boxes-packing"></i>
-          <span>Stock</span>
+          <a href="#" class="activo">
+            <i class="fa-solid fa-boxes-packing"></i>
+            <span>Stock</span>
+          </a>
         </li>
         <li>
-          <i class="fas fa-clock-rotate-left"></i>
-          <span>Historial</span>
+          <a href="#">
+            <i class="fas fa-clock-rotate-left"></i>
+            <span>Historial</span>
+          </a>
         </li>
       </ul>
     </aside>
-</body>
-<script src="/frontend/js/sidebar.js"></script>
 
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- Formulario de ingreso -->
+      <div class="ingreso-produccion">
+        <select id="tipo-pan">
+          <option value="">Tipo de pan</option>
+          <option value="pan-frances">Pan francés</option>
+          <option value="pan-ciabatta">Pan ciabatta</option>
+          <option value="pan-yema">Pan yema</option>
+          <option value="pan-carioco">Pan carioco</option>
+          <option value="pan-hamburguesa">Pan hamburguesa</option>
+        </select>
+
+        <input type="number" min="0" placeholder="Cantidad de pan" id="cantidad-pan" />
+
+        <select id="turno">
+          <option value="">Turno</option>
+          <option value="manana">Mañana</option>
+          <option value="tarde">Tarde</option>
+          <option value="noche">Noche</option>
+        </select>
+
+        <input type="number" min="0" placeholder="Cantidad de latas" id="can-latas" />
+
+        <button id="btn-registrar">Registrar</button>
+      </div>
+
+      <!-- Tabla de resultados -->
+      <div class="table-responsive">
+        <table class="tabla-produccion">
+          <thead>
+            <tr>
+              <th>Tipo de pan</th>
+              <th>Turno</th>
+              <th>Cantidad de pan</th>
+              <th>Cantidad de latas</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-body">
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+
+    <script src="/frontend/js/sidebar.js"></script>
+    <script src="/frontend/js/panes.js"></script>
+  </body>
 </html>
