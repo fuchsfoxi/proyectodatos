@@ -13,11 +13,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         let historial = await obtenerHistorial();
 
         if (turno) {
-            historial = historial.filter(r => r.turno.turno === turno);
+            // ✅ Verifica que r.turno no sea null antes de acceder a .turno
+            historial = historial.filter(r => r.turno?.turno === turno);
         }
 
         if (tipo) {
-            historial = historial.filter(r => r.producto.tipo.tipo.toLowerCase() === tipo);
+            historial = historial.filter(r => r.producto?.tipo?.tipo?.toLowerCase() === tipo);
         }
 
         await renderTabla(historial);
@@ -43,9 +44,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             tablaHistorial.innerHTML += `
                 <tr>
                     <td>${new Date(r.fecha).toLocaleDateString("es-PE")}</td>
-                    <td>${r.producto.tipo.tipo}</td>
-                    <td>${r.producto.nombre}</td>
-                    <td>${r.turno.turno}</td>
+                    <td>${r.producto?.tipo?.tipo ?? "—"}</td>
+                    <td>${r.producto?.nombre ?? "—"}</td>
+                    <td>${r.turno?.turno ?? "Sin turno"}</td>
                     <td>${r.cantidad}</td>
                 </tr>
             `;
