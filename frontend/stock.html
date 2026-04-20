@@ -28,19 +28,25 @@
       <div class="sidebar-logo">dashboard</div>
       <ul>
         <li>
-          <a href="/frontend/index.html"  data-page="home">
+          <a href="/frontend/index.html" data-page="home">
             <i class="fa-solid fa-house"></i>
             <span>Inicio</span>
           </a>
         </li>
-        <li>
-          <a href="" class="activo" data-page="home">
+        <li class="nav-item-dropdown">
+          <a href="#" class="nav-link-dropdown">
             <i class="fa-solid fa-boxes-packing"></i>
             <span>Stock</span>
+            <i class="fa-solid fa-chevron-down flecha"></i>
           </a>
+          <ul class="submenu">
+            <li><a href="/frontend/stock/panes.html">Panes</a></li>
+            <li><a href="/frontend/stock/bocaditos.html">Bocaditos</a></li>
+            <li><a href="/frontend/stock/tortas.html">Tortas</a></li>
+          </ul>
         </li>
         <li>
-          <a href="/frontend/index.html" data-page="home">
+          <a href="/frontend/index.html" class="activo" data-page="home">
             <i class="fas fa-clock-rotate-left"></i>
             <span>Historial</span>
           </a>

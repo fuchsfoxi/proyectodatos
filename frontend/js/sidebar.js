@@ -13,7 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.remove("show");
     }
 
-    // esto faltaba 👇
     hamburger.addEventListener("click", openSidebar);
     overlay.addEventListener("click", closeSidebar);
+
+    // Submenú dropdown
+    const dropdownLink = document.querySelector('.nav-link-dropdown');
+    const submenu      = document.querySelector('.submenu');
+
+    dropdownLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        submenu.classList.toggle('abierto');
+        document.querySelector('.flecha').classList.toggle('rotado');
+    });
 });
