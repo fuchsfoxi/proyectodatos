@@ -53,13 +53,13 @@
       <!-- Formulario de ingreso -->
 
       <div class="ingreso-produccion">
-        <select id="tipo-pan">
-          <option value="">Tipo de pan</option>
-          <option value="pan-frances">Pan francés</option>
-          <option value="pan-ciabatta">Pan ciabatta</option>
-          <option value="pan-yema">Pan yema</option>
-          <option value="pan-carioco">Pan carioco</option>
-          <option value="pan-hamburguesa">Pan hamburguesa</option>
+        <select id="bocadito-nombre">
+          <option value="">Bocadito</option>
+          <option value="cono">Cono</option>
+          <option value="alfajor">Afajor</option>
+          <option value="empanadita">Empanadita</option>
+          <option value="cono-chico">Cono pequeño</option>
+          <option value="alfajor-chico">Alfajor pequeño</option>
         </select>
 
         <input
@@ -68,21 +68,6 @@
           placeholder="Cantidad de pan"
           id="cantidad-pan"
         />
-
-        <select id="turno">
-          <option value="">Turno</option>
-          <option value="manana">Mañana</option>
-          <option value="tarde">Tarde</option>
-          <option value="noche">Noche</option>
-        </select>
-
-        <input
-          type="number"
-          min="0"
-          placeholder="Cantidad de latas"
-          id="can-latas"
-        />
-
         <button id="btn-registrar">Registrar</button>
       </div>
     
@@ -94,10 +79,8 @@
           <thead class="table-dark">
             <div class="mx-3">
             <tr>
-              <th>Tipo de pan</th>
-              <th>Turno</th>
-              <th>Cantidad de pan</th>
-              <th>Cantidad de latas</th>
+              <th>Bocadito</th>
+              <th>Cantidad</th>
             </tr>
             </div>
           </thead>
