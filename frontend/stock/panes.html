@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/frontend/css/diseño.css" />
   </head>
   <body>
-
     <!-- Topbar (solo visible en móvil) -->
     <div class="topbar">
       <div class="title-business">
@@ -50,7 +49,6 @@
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="main-content">
-
       <!-- Formulario de ingreso -->
       <div class="ingreso-produccion">
         <select id="tipo-pan">
@@ -62,7 +60,12 @@
           <option value="pan-hamburguesa">Pan hamburguesa</option>
         </select>
 
-        <input type="number" min="0" placeholder="Cantidad de pan" id="cantidad-pan" />
+        <input
+          type="number"
+          min="0"
+          placeholder="Cantidad de pan"
+          id="cantidad-pan"
+        />
 
         <select id="turno">
           <option value="">Turno</option>
@@ -71,15 +74,21 @@
           <option value="noche">Noche</option>
         </select>
 
-        <input type="number" min="0" placeholder="Cantidad de latas" id="can-latas" />
+        <input
+          type="number"
+          min="0"
+          placeholder="Cantidad de latas"
+          id="can-latas"
+        />
 
         <button id="btn-registrar">Registrar</button>
       </div>
 
       <!-- Tabla de resultados -->
+      <!-- Tabla de resultados -->
       <div class="table-responsive">
-        <table class="tabla-produccion">
-          <thead>
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="table-dark">
             <tr>
               <th>Tipo de pan</th>
               <th>Turno</th>
@@ -87,11 +96,9 @@
               <th>Cantidad de latas</th>
             </tr>
           </thead>
-          <tbody id="tabla-body">
-          </tbody>
+          <tbody id="tabla-body"></tbody>
         </table>
       </div>
-
     </main>
 
     <script src="/frontend/js/sidebar.js"></script>
