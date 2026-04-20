@@ -1,60 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="Es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="/frontend/css/diseño.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/frontend/css/diseño.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <!-- Topbar (solo visible en móvil)  -->
     <div class="topbar">
-        <div class="title-business">
-            <span>PANDAERIA Y PASTELERIA RENZO</span>
-        </div>
-        <div class="btn-menu">
-            <button class="hamburger" aria-label="abrir_menú">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+      <div class="title-business">
+        <span>PANDAERIA Y PASTELERIA RENZO</span>
+      </div>
+      <div class="btn-menu">
+        <button class="hamburger" aria-label="abrir_menú">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
 
     <!-- OVERLAY -->
-     <div class="overlay"></div>
+    <div class="overlay"></div>
 
+    <!-- SIDEBAR   -->
 
-
-     <!-- SIDEBAR   -->
-
-     <aside class="sidebar">
-        <div class="sidebar-logo"> dashboard </div>
-        <ul>
-            <li>
-                <a href="/frontend/index.html" class="activo" data-page="home">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Inicio</span>
-                </a>
-            </li>
-            <li>
-                <i class="fa-solid fa-boxes-packing"></i>
-                <span>Stock</span>
-            </li>
-            <li>
-                <i class="fas fa-clock-rotate-left"></i>
-                <span>Historial</span>
-            </li>
-        </ul>
-     </aside>
+    <aside class="sidebar">
+      <div class="sidebar-logo">dashboard</div>
+      <ul>
+        <li>
+          <a href="/frontend/index.html" class="activo" data-page="home">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a href="/frontend/stock.html" data-page="stock">
+            <i class="fa-solid fa-boxes-packing"></i>
+            <span>Stock</span>
+          </a>
+        </li>
+        <li>
+          <a href="/frontend/historial" class="activo" data-page="home">
+            <i class="fas fa-clock-rotate-left"></i>
+            <span>Historial</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
 
     <!-- CONTENIDO PRINCIPAL -->
-     <!-- por hacer  -->
-</body>
+    <!-- por hacer  -->
+  </body>
 
-<script src="/frontend/js/sidebar.js"></script>
+  <script src="/frontend/js/sidebar.js"></script>
 </html>

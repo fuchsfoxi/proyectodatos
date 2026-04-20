@@ -79,7 +79,7 @@ body {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -100%;
+    left: 0;        
     width: var(--sidebar-w);
     height: 100vh;
     background-color: var(--sidebar-bg);
@@ -106,9 +106,44 @@ body {
     text-align: center;
 }
 
+.main-content {
+    margin-left: var(--sidebar-w);
+    min-height: calc(100vh - var(--topbar-h));
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 8px;
+    margin: 2px 8px;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--bg);
+    color: var(--color-fon);
+}
+
+.sidebar ul li a.activo {
+    background-color: rgba(46, 111, 64, 0.1);
+    color: var(--color-fon);
+    font-weight: 600;
+}
+
+
+
     /* STOCK --------------------------------------------------------------------------------------*/
 
-    /* ─── CONTENIDO PRINCIPAL ────────────────────────── */
 .card-comp {
     display: flex;
     flex-direction: column;
