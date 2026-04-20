@@ -1,10 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
+const API = "http://localhost:8080/api/Produccion";
+
+document.addEventListener("DOMContentLoaded", async () => {
     const btnRegistrar = document.getElementById("btn-registrar");
     const tablaBody    = document.getElementById("tabla-body");
 
-    cargarTabla();
+    await cargarTabla();
 
-    btnRegistrar.addEventListener("click", () => {
+    btnRegistrar.addEventListener("click", async () => {
         const nombre   = document.getElementById("tortas-nombre").value;
         const cantidad = document.getElementById("cantidad-torta").value;
 
@@ -14,40 +16,41 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const registro = {
-            tipo: "tortas",
             nombre: nombre,
-            cantidad: cantidad,
+            cantidad: parseInt(cantidad),
             turno: "",
-            latas: "",
-            fecha: new Date().toLocaleDateString("es-PE")
+            latas: 0,
+            fecha: new Date().toLocaleDateString("es-PE"),
+            tipo: "tortas"
         };
 
-        guardarRegistro(registro);
-        agregarFila(registro);
+        await guardarRegistro(registro);
+        await cargarTabla();
 
-        document.getElementById("tortas-nombre").value   = "";
-        document.getElementById("cantidad-torta").value  = "";
+        document.getElementById("tortas-nombre").value  = "";
+        document.getElementById("cantidad-torta").value = "";
     });
 
-    function guardarRegistro(registro) {
-        const historial = JSON.parse(localStorage.getItem("historial")) || [];
-        historial.push(registro);
-        localStorage.setItem("historial", JSON.stringify(historial));
+    async function guardarRegistro(registro) {
+        await fetch(API, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(registro)
+        });
     }
 
-    function agregarFila(registro) {
-        const fila = `
-            <tr>
-                <td>${registro.nombre}</td>
-                <td>${registro.cantidad}</td>
-            </tr>
-        `;
-        tablaBody.innerHTML += fila;
-    }
-
-    function cargarTabla() {
-        const historial = JSON.parse(localStorage.getItem("historial")) || [];
-        const tortas = historial.filter(r => r.tipo === "tortas");
-        tortas.forEach(r => agregarFila(r));
+    async function cargarTabla() {
+        const response = await fetch(API);
+        const datos    = await response.json();
+        tablaBody.innerHTML = "";
+        const tortas = datos.filter(r => r.tipo === "tortas");
+        tortas.forEach(r => {
+            tablaBody.innerHTML += `
+                <tr>
+                    <td>${r.nombre}</td>
+                    <td>${r.cantidad}</td>
+                </tr>
+            `;
+        });
     }
 });

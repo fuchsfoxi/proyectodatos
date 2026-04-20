@@ -1,16 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
+const API = "http://localhost:8080/api/Produccion";
+
+document.addEventListener("DOMContentLoaded", async () => {
     const tablaHistorial = document.getElementById("tabla-historial");
     const btnFiltrar     = document.getElementById("btn-filtrar");
 
     // cargar todo al entrar
-    renderTabla(obtenerHistorial());
+    await renderTabla(await obtenerHistorial());
 
-    btnFiltrar.addEventListener("click", () => {
+    btnFiltrar.addEventListener("click", async () => {
         const fecha = document.getElementById("filtro-fecha").value;
         const turno = document.getElementById("filtro-turno").value;
         const tipo  = document.getElementById("filtro-tipo").value;
 
-        let historial = obtenerHistorial();
+        let historial = await obtenerHistorial();
 
         if (fecha) {
             const fechaFormateada = new Date(fecha).toLocaleDateString("es-PE");
@@ -25,11 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
             historial = historial.filter(r => r.tipo === tipo);
         }
 
-        renderTabla(historial);
+        await renderTabla(historial);
     });
 
-    function obtenerHistorial() {
-        return JSON.parse(localStorage.getItem("historial")) || [];
+    async function obtenerHistorial() {
+        const response = await fetch(API);
+        return await response.json();
     }
 
     function renderTabla(historial) {
@@ -45,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         historial.forEach(r => {
-            const fila = `
+            tablaHistorial.innerHTML += `
                 <tr>
                     <td>${r.fecha}</td>
                     <td>${r.tipo}</td>
@@ -55,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${r.latas || "-"}</td>
                 </tr>
             `;
-            tablaHistorial.innerHTML += fila;
         });
     }
 });

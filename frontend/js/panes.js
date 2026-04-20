@@ -1,11 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
+const API = "http://localhost:8080/api/Produccion";
+
+document.addEventListener("DOMContentLoaded", async () => {
     const btnRegistrar = document.getElementById("btn-registrar");
     const tablaBody    = document.getElementById("tabla-body");
 
-    // cargar datos guardados al entrar a la página
-    cargarTabla();
+    // cargar datos al entrar
+    await cargarTabla();
 
-    btnRegistrar.addEventListener("click", () => {
+    btnRegistrar.addEventListener("click", async () => {
         const tipoPan     = document.getElementById("tipo-pan").value;
         const cantidadPan = document.getElementById("cantidad-pan").value;
         const turno       = document.getElementById("turno").value;
@@ -17,48 +19,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const registro = {
-            tipo: "panes",
             nombre: tipoPan,
-            cantidad: cantidadPan,
+            cantidad: parseInt(cantidadPan),
             turno: turno,
-            latas: canLatas,
-            fecha: new Date().toLocaleDateString("es-PE")
+            latas: parseInt(canLatas),
+            fecha: new Date().toLocaleDateString("es-PE"),
+            tipo: "panes"
         };
 
-        // guardar en localStorage
-        guardarRegistro(registro);
+        await guardarRegistro(registro);
+        await cargarTabla();
 
-        // agregar fila a la tabla
-        agregarFila(registro);
-
-        // limpiar campos
-        document.getElementById("tipo-pan").value    = "";
+        document.getElementById("tipo-pan").value     = "";
         document.getElementById("cantidad-pan").value = "";
         document.getElementById("turno").value        = "";
         document.getElementById("can-latas").value    = "";
     });
 
-    function guardarRegistro(registro) {
-        const historial = JSON.parse(localStorage.getItem("historial")) || [];
-        historial.push(registro);
-        localStorage.setItem("historial", JSON.stringify(historial));
+    async function guardarRegistro(registro) {
+        await fetch(API, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(registro)
+        });
     }
 
-    function agregarFila(registro) {
-        const fila = `
-            <tr>
-                <td>${registro.nombre}</td>
-                <td>${registro.turno}</td>
-                <td>${registro.cantidad}</td>
-                <td>${registro.latas}</td>
-            </tr>
-        `;
-        tablaBody.innerHTML += fila;
-    }
-
-    function cargarTabla() {
-        const historial = JSON.parse(localStorage.getItem("historial")) || [];
-        const panes = historial.filter(r => r.tipo === "panes");
-        panes.forEach(r => agregarFila(r));
+    async function cargarTabla() {
+        const response = await fetch(API);
+        const datos    = await response.json();
+        tablaBody.innerHTML = "";
+        const panes = datos.filter(r => r.tipo === "panes");
+        panes.forEach(r => {
+            tablaBody.innerHTML += `
+                <tr>
+                    <td>${r.nombre}</td>
+                    <td>${r.turno}</td>
+                    <td>${r.cantidad}</td>
+                    <td>${r.latas}</td>
+                </tr>
+            `;
+        });
     }
 });
