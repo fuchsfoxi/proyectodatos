@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Panes</title>
     <link rel="stylesheet" href="/frontend/css/diseño.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-
     <!-- Topbar (solo visible en móvil) -->
     <div class="topbar">
       <div class="title-business">
@@ -34,11 +36,19 @@
             <span>Inicio</span>
           </a>
         </li>
-        <li>
-          <a href="#" class="activo">
+        <li class="nav-item-dropdown">
+          <a href="#" class="nav-link-dropdown">
             <i class="fa-solid fa-boxes-packing"></i>
             <span>Stock</span>
+            <i class="fa-solid fa-chevron-down flecha"></i>
           </a>
+
+          <select name="tock-submenu" id="sub-menu">
+            <option value="panes"> 
+              <a href="/frontend/stock/panes.html">
+                panes 
+              </a></option>
+          </select>
         </li>
         <li>
           <a href="#">
@@ -51,7 +61,6 @@
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="main-content">
-
       <!-- Formulario de ingreso -->
       <div class="ingreso-produccion">
         <select id="tipo-pan">
@@ -63,7 +72,12 @@
           <option value="pan-hamburguesa">Pan hamburguesa</option>
         </select>
 
-        <input type="number" min="0" placeholder="Cantidad de pan" id="cantidad-pan" />
+        <input
+          type="number"
+          min="0"
+          placeholder="Cantidad de pan"
+          id="cantidad-pan"
+        />
 
         <select id="turno">
           <option value="">Turno</option>
@@ -71,7 +85,12 @@
           <option value="tarde">Tarde</option>
         </select>
 
-        <input type="number" min="0" placeholder="Cantidad de latas" id="can-latas" />
+        <input
+          type="number"
+          min="0"
+          placeholder="Cantidad de latas"
+          id="can-latas"
+        />
 
         <button id="btn-registrar">Registrar</button>
       </div>
@@ -90,7 +109,6 @@
           <tbody id="tabla-body"></tbody>
         </table>
       </div>
-
     </main>
 
     <script src="/frontend/js/sidebar.js"></script>
