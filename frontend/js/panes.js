@@ -8,29 +8,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     const selectPan    = document.getElementById("tipo-pan");
     const selectTurno  = document.getElementById("turno");
 
-    // cargar productos tipo Pan en el select
+    // Cargar productos tipo Pan en el select
     const productos = await fetch(API_PRODUCTO).then(r => r.json());
-    const panes = productos.filter(p => p.tipo.tipo === "Pan");
+    const panes = productos.filter(p => p.tipo && p.tipo.tipo === "Pan");
     selectPan.innerHTML = '<option value="">Tipo de pan</option>';
     panes.forEach(p => {
         selectPan.innerHTML += `<option value="${p.id_producto}">${p.nombre}</option>`;
     });
 
-    // cargar turnos en el select
+    // Cargar turnos en el select
     const turnos = await fetch(API_TURNO).then(r => r.json());
     selectTurno.innerHTML = '<option value="">Turno</option>';
     turnos.forEach(t => {
         selectTurno.innerHTML += `<option value="${t.id_turno}">${t.turno}</option>`;
     });
 
-    // cargar tabla
+    // Cargar tabla al inicio
     await cargarTabla();
 
     btnRegistrar.addEventListener("click", async () => {
-        const idProducto = document.getElementById("tipo-pan").value;
+        const idProducto  = document.getElementById("tipo-pan").value;
         const cantidadPan = document.getElementById("cantidad-pan").value;
-        const idTurno    = document.getElementById("turno").value;
-        const canLatas   = document.getElementById("can-latas").value;
+        const idTurno     = document.getElementById("turno").value;
+        const canLatas    = document.getElementById("can-latas").value;
 
         if (!idProducto || !cantidadPan || !idTurno || !canLatas) {
             alert("Por favor completa todos los campos.");
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             cantidad: parseInt(cantidadPan),
             fecha: new Date().toISOString(),
             producto: { id_producto: parseInt(idProducto) },
-            turno: { id_turno: parseInt(idTurno) }
+            turno:    { id_turno:    parseInt(idTurno) }
         };
 
         await fetch(API_PRODUCCION, {
@@ -58,10 +58,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("can-latas").value    = "";
     });
 
+    // ← Una sola función cargarTabla, con filtro defensivo
     async function cargarTabla() {
         const datos = await fetch(API_PRODUCCION).then(r => r.json());
         tablaBody.innerHTML = "";
-        const panes = datos.filter(r => r.producto.tipo.tipo === "Pan");
+
+        const panes = datos.filter(r =>
+            r.producto &&
+            r.producto.tipo &&
+            r.producto.tipo.tipo === "Pan" &&
+            r.turno
+        );
+
         panes.forEach(r => {
             tablaBody.innerHTML += `
                 <tr>

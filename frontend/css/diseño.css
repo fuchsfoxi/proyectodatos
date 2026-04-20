@@ -182,15 +182,15 @@ body {
 }
 
 .card-panes {
-    background: url('/frontend/img/panes.jpg') center/cover no-repeat;
+    background: url('/frontend/img/img_panes.png') center/cover no-repeat;
 }
 
 .card-bocaditos {
-    background: url('/frontend/img/bocaditos.jpg') center/cover no-repeat;
+    background: url('/frontend/img/img_bocadito.png') center/cover no-repeat;
 }
 
 .card-tortas {
-    background: url('/frontend/img/tortas.jpg') center/cover no-repeat;
+    background: url('/frontend/img/img_torta.png') center/cover no-repeat;
 }
 
 .card::before {
