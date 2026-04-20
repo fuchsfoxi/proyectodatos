@@ -16,7 +16,7 @@
     --topbar-h: 56px;
     --danger: #e74c3c;
     --color-fon: #2E6F40;
-    --animation:#68BA7F;
+    --animation: #68BA7F;
 }
 
 body {
@@ -25,7 +25,7 @@ body {
     color: var(--text);
 }
 
-/* ─── TOPBAR (móvil) ─────────────────────────────── */
+/* ─── TOPBAR ─────────────────────────────── */
 .topbar {
     display: flex;
     align-items: center;
@@ -62,20 +62,6 @@ body {
     background-color: var(--bg);
 }
 
-.nav-item-dropdown .submenu {
-    display: none;
-    flex-direction: column;
-    padding-left: 36px;
-}
-
-.nav-item-dropdown:hover .submenu {
-    display: flex;
-}
-
-.nav-item-dropdown:hover .flecha {
-    transform: rotate(180deg);
-}
-
 /* ─── OVERLAY ────────────────────────────────────── */
 .overlay {
     display: none;
@@ -93,7 +79,7 @@ body {
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;        
+    left: 0;
     width: var(--sidebar-w);
     height: 100vh;
     background-color: var(--sidebar-bg);
@@ -105,10 +91,6 @@ body {
     padding: 24px 0;
 }
 
-.sidebar.open {
-    left: 0;
-}
-
 .sidebar-logo {
     padding: 0 20px 20px;
     font-size: 1.05rem;
@@ -118,11 +100,6 @@ body {
     color: var(--text);
     letter-spacing: 0.5px;
     text-align: center;
-}
-
-.main-content {
-    margin-left: var(--sidebar-w);
-    min-height: calc(100vh - var(--topbar-h));
 }
 
 .sidebar ul {
@@ -154,18 +131,34 @@ body {
     font-weight: 600;
 }
 
+.nav-item-dropdown .submenu {
+    display: none;
+    flex-direction: column;
+    padding-left: 36px;
+}
 
+.nav-item-dropdown:hover .submenu {
+    display: flex;
+}
 
-    /* STOCK --------------------------------------------------------------------------------------*/
+.nav-item-dropdown:hover .flecha {
+    transform: rotate(180deg);
+}
 
+/* ─── MAIN CONTENT (base sin margen) ────────────────── */
+.main-content {
+    margin-left: 0;
+    min-height: 100vh;
+}
+
+/* ─── STOCK ──────────────────────────────────────────── */
 .card-comp {
     display: flex;
     flex-direction: column;
     gap: 24px;
     align-items: center;
     padding: 40px 24px;
-    margin-top: var(--topbar-h);
-    min-height: calc(100vh - var(--topbar-h));
+    min-height: 100vh;
 }
 
 .card {
@@ -188,7 +181,6 @@ body {
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
 }
 
-/* imagen de fondo por card */
 .card-panes {
     background: url('/frontend/img/panes.jpg') center/cover no-repeat;
 }
@@ -201,7 +193,6 @@ body {
     background: url('/frontend/img/tortas.jpg') center/cover no-repeat;
 }
 
-/* overlay oscuro para que el texto sea legible */
 .card::before {
     content: '';
     position: absolute;
@@ -210,7 +201,7 @@ body {
 }
 
 .card-label {
-    position: relative; /* para estar encima del overlay */
+    position: relative;
     z-index: 1;
     font-size: 2rem;
     font-weight: 700;
@@ -219,12 +210,7 @@ body {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-
-
-
-
-/* TOCK --------------------------- PANES ------------------------------------*/
-
+/* ─── INGRESO PRODUCCIÓN ─────────────────────────────── */
 .ingreso-produccion {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -250,12 +236,12 @@ body {
 
 .ingreso-produccion select:focus,
 .ingreso-produccion input:focus {
-    border-color: var(--accent);
+    border-color: var(--color-fon);
     background: #fff;
 }
 
 .ingreso-produccion button {
-    grid-column: 1 / -1;   
+    grid-column: 1 / -1;
     padding: 12px;
     background: var(--color-fon);
     color: #fff;
@@ -270,4 +256,70 @@ body {
 
 .ingreso-produccion button:hover {
     background: var(--animation);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+
+/* ESCRITORIO: sidebar fijo, topbar oculta */
+@media (min-width: 1025px) {
+    .topbar {
+        display: none;
+    }
+    .sidebar {
+        left: 0 !important;
+    }
+    .main-content {
+        margin-left: var(--sidebar-w);
+        margin-top: 0;
+    }
+    .card-comp {
+        margin-top: 0;
+        padding-top: 40px;
+    }
+}
+
+/* TABLET: sidebar oculto con hamburguesa */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .topbar {
+        display: flex;
+    }
+    .sidebar {
+        left: calc(-1 * var(--sidebar-w)) !important;
+    }
+    .sidebar.open {
+        left: 0 !important;
+    }
+    .main-content {
+        margin-left: 0;
+        margin-top: var(--topbar-h);
+    }
+    .card-comp {
+        margin-top: var(--topbar-h);
+        padding-top: 40px;
+    }
+}
+
+/* MÓVIL: sidebar oculto con hamburguesa */
+@media (max-width: 768px) {
+    .topbar {
+        display: flex;
+    }
+    .sidebar {
+        left: calc(-1 * var(--sidebar-w)) !important;
+    }
+    .sidebar.open {
+        left: 0 !important;
+    }
+    .main-content {
+        margin-left: 0;
+        margin-top: var(--topbar-h);
+    }
+    .card-comp {
+        margin-top: var(--topbar-h);
+        padding-top: 24px;
+    }
+    .ingreso-produccion {
+        grid-template-columns: 1fr;
+        margin: 80px auto;
+    }
 }
