@@ -18,6 +18,9 @@ public class Produccion {
     @Column(nullable = false)
     private LocalDateTime fecha;
 
+    @Column
+    private Integer latas;
+
     @ManyToOne
     @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
@@ -32,6 +35,8 @@ public class Produccion {
     public void setCantidad(int cantidad) { this.cantidad = cantidad; }
     public LocalDateTime getFecha() { return fecha; }
     public void setFecha(LocalDateTime fecha) { this.fecha = fecha; }
+    public Integer getLatas() { return latas; }
+    public void setLatas(Integer latas) { this.latas = latas; }
     public Producto getProducto() { return producto; }
     public void setProducto(Producto producto) { this.producto = producto; }
     public Turno getTurno() { return turno; }
