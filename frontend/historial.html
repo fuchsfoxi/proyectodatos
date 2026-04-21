@@ -1,107 +1,53 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Historial</title>
-    <link rel="stylesheet" href="/frontend/css/diseño.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  </head>
-  <body>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="main-content">
+  <div class="dashboard-wrapper">
 
-    <!-- Topbar -->
-    <div class="topbar">
-      <div class="title-business">
-        <span>PANDAERIA Y PASTELERIA RENZO</span>
+    <!-- Hero -->
+    <div class="hero-card fade-up">
+      <div class="hero-top">
+        <div class="hero-icon">🍞</div>
+        <div>
+          <p class="hero-title">Panadería y Pastelería Renzo</p>
+          <p class="hero-subtitle">Sistema de control de producción</p>
+        </div>
       </div>
-      <div class="btn-menu" id="btn-menu">
-        <button class="hamburger" id="hamburger" aria-label="abrir_menú">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+      <p class="hero-desc">
+        Bienvenido al panel de gestión. Desde aquí puedes registrar
+        la producción diaria, consultar el historial y revisar el stock
+        de productos.
+      </p>
+    </div>
+
+    <!-- Tarjetas de acceso -->
+    <div class="fade-up">
+      <p class="section-label">¿Qué deseas hacer?</p>
+      <div class="accesos-grid">
+        <a href="/frontend/stock.html" class="acceso-card">
+          <div class="ac-icon green"><i class="fa-solid fa-boxes-packing"></i></div>
+          <div class="ac-info">
+            <span class="ac-title">Registrar producción</span>
+            <span class="ac-desc">Ingresa los productos elaborados del día</span>
+          </div>
+          <i class="fa-solid fa-chevron-right ac-arrow"></i>
+        </a>
+        <a href="/frontend/historial.html" class="acceso-card">
+          <div class="ac-icon amber"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <div class="ac-info">
+            <span class="ac-title">Ver historial</span>
+            <span class="ac-desc">Consulta los registros anteriores</span>
+          </div>
+          <i class="fa-solid fa-chevron-right ac-arrow"></i>
+        </a>
       </div>
     </div>
 
+    <!-- Info del sistema -->
+    <div class="fade-up info-box">
+      <i class="fa-solid fa-circle-info" style="color:var(--color-fon);font-size:1.1rem;flex-shrink:0"></i>
+      <p>Este sistema reemplaza el registro manual en papel, permitiendo
+      llevar un control más ordenado y rápido de la producción diaria
+      de la panadería.</p>
+    </div>
 
-    <!-- OVERLAY -->
-    <div class="overlay"></div>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="sidebar-logo">dashboard</div>
-      <ul>
-        <li>
-          <a href="/frontend/index.html">
-            <i class="fa-solid fa-house"></i>
-            <span>Inicio</span>
-          </a>
-        </li>
-        <li class="nav-item-dropdown">
-          <a href="/frontend/stock.html" class="nav-link-dropdown">
-            <i class="fa-solid fa-boxes-packing"></i>
-            <span>Stock</span>
-            <i class="fa-solid fa-chevron-down flecha"></i>
-          </a>
-          <ul class="submenu">
-            <li><a href="/frontend/stock/panes.html">Panes</a></li>
-            <li><a href="/frontend/stock/bocaditos.html">Bocaditos</a></li>
-            <li><a href="/frontend/stock/tortas.html">Tortas</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="/frontend/historial.html" class="activo">
-            <i class="fas fa-clock-rotate-left"></i>
-            <span>Historial</span>
-          </a>
-        </li>
-      </ul>
-    </aside>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-content">
-
-      <!-- Filtros -->
-      <div class="ingreso-produccion">
-        <input type="date" id="filtro-fecha" />
-
-        <select id="filtro-turno">
-          <option value="">Todos los turnos</option>
-          <option value="manana">Mañana</option>
-          <option value="tarde">Tarde</option>
-          <option value="noche">Noche</option>
-        </select>
-
-        <select id="filtro-tipo">
-          <option value="">Todos</option>
-          <option value="panes">Panes</option>
-          <option value="bocaditos">Bocaditos</option>
-          <option value="tortas">Tortas</option>
-        </select>
-
-        <button id="btn-filtrar">Filtrar</button>
-      </div>
-
-      <!-- Tabla -->
-      <div class="table-responsive mx-3">
-        <table class="table table-striped table-bordered table-hover">
-          <thead class="table-dark">
-            <tr>
-              <th>Fecha</th>
-              <th>Tipo</th>
-              <th>Nombre</th>
-              <th>Turno</th>
-              <th>Cantidad</th>
-              <th>Latas</th>
-            </tr>
-          </thead>
-          <tbody id="tabla-historial"></tbody>
-        </table>
-      </div>
-
-    </main>
-
-    <script src="/frontend/js/sidebar.js"></script>
-    <script src="/frontend/js/historial.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+  </div>
+</main>
